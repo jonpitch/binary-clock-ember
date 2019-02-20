@@ -1,7 +1,12 @@
 # binary-clock-ember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+this is a [binary clock](https://en.wikipedia.org/wiki/Binary_clock) built with the latest [Ember](https://emberjs.com/) features. the goal is to compare and contrast web development frameworks/tools.
+
+objectives:
+
+* small build size
+* progressive web application
+* developer ergonomics
 
 ## Prerequisites
 
