@@ -1,7 +1,10 @@
 ---
 language: node_js
 node_js:
-  - "6"
+  - "10"
+
+notifications:
+  email: false
 
 sudo: false
 dist: trusty
