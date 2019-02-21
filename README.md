@@ -1,5 +1,7 @@
 # binary-clock-ember
 
+[![Build Status](https://travis-ci.com/jonpitch/binary-clock-ember.svg?branch=master)](https://travis-ci.com/jonpitch/binary-clock-ember)
+
 this is a [binary clock](https://en.wikipedia.org/wiki/Binary_clock) built with the latest [Ember](https://emberjs.com/) features. the goal is to compare and contrast web development frameworks/tools.
 
 objectives:
