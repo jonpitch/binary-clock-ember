@@ -1,0 +1,46 @@
+<div style="display:flex;justify-content:space-evenly;">
+
+  {{! hours }}
+  <div style="display:flex;justify-content:space-between;">
+    <div style="align-self:flex-end;margin" data-test="h1">
+      <div style="margin:1rem;" class="{{if h12 'active'}}" data-test="h12">h12</div>
+      <div style="margin:1rem;" class="{{if h11 'active'}}" data-test="h11">h11</div>
+    </div>
+    <div data-test="h0">
+      <div style="margin:1rem;" class="{{if h08 'active'}}" data-test="h08">h08</div>
+      <div style="margin:1rem;" class="{{if h04 'active'}}" data-test="h04">h04</div>
+      <div style="margin:1rem;" class="{{if h02 'active'}}" data-test="h02">h02</div>
+      <div style="margin:1rem;" class="{{if h01 'active'}}" data-test="h01">h01</div>
+    </div>
+  </div>
+
+  {{! minutes }}
+  <div style="display:flex;justify-content:space-between;">
+    <div style="align-self:flex-end;" data-test="m1">
+      <div style="margin:1rem;" class="{{if m14 'active'}}" data-test="m14">m14</div>
+      <div style="margin:1rem;" class="{{if m12 'active'}}" data-test="m12">m12</div>
+      <div style="margin:1rem;" class="{{if m11 'active'}}" data-test="m11">m11</div>
+    </div>
+    <div data-test="m0">
+      <div style="margin:1rem;" class="{{if m08 'active'}}" data-test="m08">m08</div>
+      <div style="margin:1rem;" class="{{if m04 'active'}}" data-test="m04">m04</div>
+      <div style="margin:1rem;" class="{{if m02 'active'}}" data-test="m02">m02</div>
+      <div style="margin:1rem;" class="{{if m01 'active'}}" data-test="m01">m01</div>
+    </div>
+  </div>
+
+  {{! seconds }}
+  <div style="display:flex;justify-content:space-between;">
+    <div style="align-self:flex-end;" data-test="s1">
+      <div style="margin:1rem;" class="{{if s14 'active'}}" data-test="s14">s14</div>
+      <div style="margin:1rem;" class="{{if s12 'active'}}" data-test="s12">s12</div>
+      <div style="margin:1rem;" class="{{if s11 'active'}}" data-test="s11">s11</div>
+    </div>
+    <div data-test="s0">
+      <div style="margin:1rem;" class="{{if s08 'active'}}" data-test="s08">s08</div>
+      <div style="margin:1rem;" class="{{if s04 'active'}}" data-test="s04">s04</div>
+      <div style="margin:1rem;" class="{{if s02 'active'}}" data-test="s02">s02</div>
+      <div style="margin:1rem;" class="{{if s01 'active'}}" data-test="s01">s01</div>
+    </div>
+  </div>
+</div>
