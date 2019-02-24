@@ -1,0 +1,56 @@
+$keyline: 24px;
+
+body {
+  background-color: #4c4c4c;
+}
+
+binary-clock {
+
+  .clock {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .column {
+    display: flex;
+    justify-content: space-between;
+
+    > .tens {
+      align-self: flex-end;
+    }
+  }
+
+  .dot {
+    border: $keyline solid #676767;
+    border-radius: 50%;
+    &.active {
+      border: $keyline solid #eeeeee;
+    }
+
+    margin: 1rem;
+
+    // ~phone
+    @media (min-width: 320px) and (max-width: 480px) {
+      margin: .1rem;
+    }
+
+    // ~tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+      margin: 1rem;
+    }
+
+    // ~desktop
+    @media (min-width: 1281px) {
+      margin: 5rem;
+    }
+  }
+
+  .human-time {
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    color: #676767;
+    margin-top: $keyline;
+    font-size: 3rem;
+  }
+}

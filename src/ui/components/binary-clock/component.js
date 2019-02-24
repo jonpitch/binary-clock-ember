@@ -3,7 +3,9 @@ import Component from '@ember/component';
 import { task } from 'ember-concurrency-decorators';
 import { timeout } from 'ember-concurrency';
 import { computed } from '@ember-decorators/object';
+import { tagName } from '@ember-decorators/component';
 
+@tagName('binary-clock')
 export default class BinaryClock extends Component {
 
   _time = null;
@@ -149,6 +151,14 @@ export default class BinaryClock extends Component {
   get h12() {
     const hours = this._time.getHours();
     return ((hours - (hours % 10)) / 10) === 2;
+  }
+
+  @computed('_time')
+  get humanTime() {
+    const h = this._time.getHours().toString().padStart(2, '0');
+    const m = this._time.getMinutes().toString().padStart(2, '0');
+    const s = this._time.getSeconds().toString().padStart(2, '0');
+    return `${h}:${m}:${s}`;
   }
 
   @task

@@ -4,7 +4,8 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {
   create,
-  hasClass
+  hasClass,
+  text
 } from 'ember-cli-page-object';
 
 const component = create({
@@ -51,6 +52,10 @@ const component = create({
       two: hasClass('active', '[data-test="s02"]'),
       one: hasClass('active', '[data-test="s01"]')
     }
+  },
+  human: {
+    scope: '[data-test="human-time"]',
+    time: text()
   }
 });
 
@@ -142,6 +147,9 @@ module('Integration | Component | binary-clock', function(hooks) {
       } else {
         assert.notOk(component.h.zero.one, `${e.h} - h01 correct`);
       }
+
+      const [display] = this._time.toTimeString().split(' ');
+      assert.equal(component.human.time, display, 'human time is correct');
     });
   });
 
@@ -265,6 +273,9 @@ module('Integration | Component | binary-clock', function(hooks) {
       } else {
         assert.notOk(component.m.zero.one, `${e.m} - m01 correct`);
       }
+
+      const [display] = this._time.toTimeString().split(' ');
+      assert.equal(component.human.time, display, 'human time is correct');
     });
   });
 
@@ -388,6 +399,9 @@ module('Integration | Component | binary-clock', function(hooks) {
       } else {
         assert.notOk(component.s.zero.one, `${e.s} - s01 correct`);
       }
+
+      const [display] = this._time.toTimeString().split(' ');
+      assert.equal(component.human.time, display, 'human time is correct');
     });
   });
 });
