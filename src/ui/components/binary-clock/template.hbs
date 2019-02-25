@@ -3,48 +3,48 @@
   {{! hours }}
   <div class="column">
     <div class="tens" data-test="h1">
-      <div class="dot {{if h12 'active'}}" data-test="h12"></div>
-      <div class="dot {{if h11 'active'}}" data-test="h11"></div>
+      <div class="dot {{if this.h12 "active"}}" data-test="h12"></div>
+      <div class="dot {{if this.h11 "active"}}" data-test="h11"></div>
     </div>
     <div data-test="h0">
-      <div class="dot {{if h08 'active'}}" data-test="h08"></div>
-      <div class="dot {{if h04 'active'}}" data-test="h04"></div>
-      <div class="dot {{if h02 'active'}}" data-test="h02"></div>
-      <div class="dot {{if h01 'active'}}" data-test="h01"></div>
+      <div class="dot {{if this.h08 "active"}}" data-test="h08"></div>
+      <div class="dot {{if this.h04 "active"}}" data-test="h04"></div>
+      <div class="dot {{if this.h02 "active"}}" data-test="h02"></div>
+      <div class="dot {{if this.h01 "active"}}" data-test="h01"></div>
     </div>
   </div>
 
   {{! minutes }}
   <div class="column">
     <div class="tens" data-test="m1">
-      <div class="dot {{if m14 'active'}}" data-test="m14"></div>
-      <div class="dot {{if m12 'active'}}" data-test="m12"></div>
-      <div class="dot {{if m11 'active'}}" data-test="m11"></div>
+      <div class="dot {{if this.m14 "active"}}" data-test="m14"></div>
+      <div class="dot {{if this.m12 "active"}}" data-test="m12"></div>
+      <div class="dot {{if this.m11 "active"}}" data-test="m11"></div>
     </div>
     <div data-test="m0">
-      <div class="dot {{if m08 'active'}}" data-test="m08"></div>
-      <div class="dot {{if m04 'active'}}" data-test="m04"></div>
-      <div class="dot {{if m02 'active'}}" data-test="m02"></div>
-      <div class="dot {{if m01 'active'}}" data-test="m01"></div>
+      <div class="dot {{if this.m08 "active"}}" data-test="m08"></div>
+      <div class="dot {{if this.m04 "active"}}" data-test="m04"></div>
+      <div class="dot {{if this.m02 "active"}}" data-test="m02"></div>
+      <div class="dot {{if this.m01 "active"}}" data-test="m01"></div>
     </div>
   </div>
 
   {{! seconds }}
   <div class="column">
     <div class="tens" data-test="s1">
-      <div class="dot {{if s14 'active'}}" data-test="s14"></div>
-      <div class="dot {{if s12 'active'}}" data-test="s12"></div>
-      <div class="dot {{if s11 'active'}}" data-test="s11"></div>
+      <div class="dot {{if this.s14 "active"}}" data-test="s14"></div>
+      <div class="dot {{if this.s12 "active"}}" data-test="s12"></div>
+      <div class="dot {{if this.s11 "active"}}" data-test="s11"></div>
     </div>
     <div data-test="s0">
-      <div class="dot {{if s08 'active'}}" data-test="s08"></div>
-      <div class="dot {{if s04 'active'}}" data-test="s04"></div>
-      <div class="dot {{if s02 'active'}}" data-test="s02"></div>
-      <div class="dot {{if s01 'active'}}" data-test="s01"></div>
+      <div class="dot {{if this.s08 "active"}}" data-test="s08"></div>
+      <div class="dot {{if this.s04 "active"}}" data-test="s04"></div>
+      <div class="dot {{if this.s02 "active"}}" data-test="s02"></div>
+      <div class="dot {{if this.s01 "active"}}" data-test="s01"></div>
     </div>
   </div>
 </div>
 
 <div class="human-time" data-test="human-time">
-  {{humanTime}}
+  {{this.humanTime}}
 </div>

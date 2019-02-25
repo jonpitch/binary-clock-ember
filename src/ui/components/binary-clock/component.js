@@ -18,28 +18,28 @@ export default class BinaryClock extends Component {
   @computed('_time')
   get s01() {
     const seconds = this._time.getSeconds();
-    const binary = parseInt(seconds % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(seconds);
     return binary.slice(3) === '1';
   }
 
   @computed('_time')
   get s02() {
     const seconds = this._time.getSeconds();
-    const binary = parseInt(seconds % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(seconds);
     return binary.slice(2, 3) === '1';
   }
 
   @computed('_time')
   get s04() {
     const seconds = this._time.getSeconds();
-    const binary = parseInt(seconds % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(seconds);
     return binary.slice(1, 2) === '1';
   }
 
   @computed('_time')
   get s08() {
     const seconds = this._time.getSeconds();
-    const binary = parseInt(seconds % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(seconds);
     return binary.slice(0, 1) === '1';
   }
 
@@ -67,28 +67,28 @@ export default class BinaryClock extends Component {
   @computed('_time')
   get m01() {
     const minutes = this._time.getMinutes();
-    const binary = parseInt(minutes % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(minutes);
     return binary.slice(3) === '1';
   }
 
   @computed('_time')
   get m02() {
     const minutes = this._time.getMinutes();
-    const binary = parseInt(minutes % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(minutes);
     return binary.slice(2, 3) === '1';
   }
 
   @computed('_time')
   get m04() {
     const minutes = this._time.getMinutes();
-    const binary = parseInt(minutes % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(minutes);
     return binary.slice(1, 2) === '1';
   }
 
   @computed('_time')
   get m08() {
     const minutes = this._time.getMinutes();
-    const binary = parseInt(minutes % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(minutes);
     return binary.slice(0, 1) === '1';
   }
 
@@ -116,28 +116,28 @@ export default class BinaryClock extends Component {
   @computed('_time')
   get h01() {
     const hours = this._time.getHours();
-    const binary = parseInt(hours % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(hours);
     return binary.slice(3) === '1';
   }
 
   @computed('_time')
   get h02() {
     const hours = this._time.getHours();
-    const binary = parseInt(hours % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(hours);
     return binary.slice(2, 3) === '1';
   }
 
   @computed('_time')
   get h04() {
     const hours = this._time.getHours();
-    const binary = parseInt(hours % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(hours);
     return binary.slice(1, 2) === '1';
   }
 
   @computed('_time')
   get h08() {
     const hours = this._time.getHours();
-    const binary = parseInt(hours % 10, 10).toString(2).padStart(4, '0')
+    const binary = this._toBinary(hours);
     return binary.slice(0, 1) === '1';
   }
 
@@ -167,6 +167,16 @@ export default class BinaryClock extends Component {
       this.set('_time', new Date());
       yield timeout(1000);
     }
+  }
+
+  /**
+   * convert an integer to a binary string
+   * @param {int} decimal base 10 integer
+   * @param {int} places pad result to the left with '0'
+   * @return {string} binary string
+   */
+  _toBinary(decimal, places = 4) {
+    return parseInt(decimal % 10, 10).toString(2).padStart(places, '0');
   }
 
 }
