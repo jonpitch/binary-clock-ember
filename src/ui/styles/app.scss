@@ -45,6 +45,13 @@ binary-clock {
     }
   }
 
+  .help {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    color: #eeeeee;
+    font-size: 1rem;
+  }
+
   .human-time {
     font-family: Helvetica, sans-serif;
     display: flex;
