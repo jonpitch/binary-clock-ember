@@ -4,9 +4,12 @@ import { task } from 'ember-concurrency-decorators';
 import { timeout } from 'ember-concurrency';
 import { computed } from '@ember-decorators/object';
 import { tagName } from '@ember-decorators/component';
+import { inject as service } from '@ember-decorators/service';
+import { HUMAN_TIME, SHOW_MATH, SHOW_BINARY } from '../../../services/settings';
 
 @tagName('binary-clock')
 export default class BinaryClock extends Component {
+  @service settings
 
   _time = null;
 
@@ -251,6 +254,21 @@ export default class BinaryClock extends Component {
     const m = this._time.getMinutes().toString().padStart(2, '0');
     const s = this._time.getSeconds().toString().padStart(2, '0');
     return `${h}:${m}:${s}`;
+  }
+
+  @computed('settings.human-time')
+  get showHumanTime() {
+    return this.settings.get(HUMAN_TIME) === 'true';
+  }
+
+  @computed('settings.show-math')
+  get showMath() {
+    return this.settings.get(SHOW_MATH) === 'true';
+  }
+
+  @computed('settings.show-binary')
+  get showBinary() {
+    return this.settings.get(SHOW_BINARY) === 'true';
   }
 
   @task

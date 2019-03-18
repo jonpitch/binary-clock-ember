@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import Service from '@ember/service';
 import {
   create,
   hasClass,
@@ -159,6 +160,14 @@ module('Integration | Component | binary-clock', function(hooks) {
       { h: 23, h01: true, h02: true, h04: false, h08: false, h11: false, h12: true, bin0: '0011', math0: '0+0+2+1', bin1: '10100', math1: '2+0' },
     ];
 
+    const mockSettingsService = Service.extend({
+      get() {
+        return 'true';
+      }
+    });
+
+    this.owner.register('service:settings', mockSettingsService);
+
     this.set('_time', new Date(1984, 6, 8, 0, 0, 0));
     await render(hbs`
       <BinaryClock @_time={{this._time}} />
@@ -286,6 +295,14 @@ module('Integration | Component | binary-clock', function(hooks) {
       { m: 58, m01: false, m02: false, m04: false, m08: true, m11: true, m12: false, m14: true, bin0: '1000', math0: '8+0+0+0', bin1: '110010', math1: '4+0+1' },
       { m: 59, m01: true, m02: false, m04: false, m08: true, m11: true, m12: false, m14: true, bin0: '1001', math0: '8+0+0+1', bin1: '110010', math1: '4+0+1' },
     ];
+
+    const mockSettingsService = Service.extend({
+      get() {
+        return 'true';
+      }
+    });
+
+    this.owner.register('service:settings', mockSettingsService);
 
     this.set('_time', new Date(1984, 6, 8, 0, 0, 0));
     await render(hbs`
@@ -422,6 +439,14 @@ module('Integration | Component | binary-clock', function(hooks) {
       { s: 59, s01: true, s02: false, s04: false, s08: true, s11: true, s12: false, s14: true, bin0: '1001', math0: '8+0+0+1', bin1: '110010', math1: '4+0+1' },
     ];
 
+    const mockSettingsService = Service.extend({
+      get() {
+        return 'true';
+      }
+    });
+
+    this.owner.register('service:settings', mockSettingsService);
+
     this.set('_time', new Date(1984, 6, 8, 0, 0, 0));
     await render(hbs`
       <BinaryClock @_time={{this._time}} />
@@ -492,5 +517,34 @@ module('Integration | Component | binary-clock', function(hooks) {
       const [display] = this._time.toTimeString().split(' ');
       assert.equal(component.human.time, display, 'human time is correct');
     });
+  });
+
+  test('without user settings', async function(assert) {
+    const mockSettingsService = Service.extend({
+      get() {
+        return 'false';
+      }
+    });
+
+    this.owner.register('service:settings', mockSettingsService);
+
+    this.set('_time', new Date(1984, 6, 8, 0, 0, 0));
+    await render(hbs`
+      <BinaryClock @_time={{this._time}} />
+    `);
+
+    assert.notOk(component.s.zero.math.isVisible, 's0 math not shown');
+    assert.notOk(component.s.zero.binary.isVisible, 's0 binary not shown');
+    assert.notOk(component.s.one.math.isVisible, 's1 math not shown');
+    assert.notOk(component.s.one.binary.isVisible, 's1 binary not shown');
+    assert.notOk(component.m.zero.math.isVisible, 'm0 math not shown');
+    assert.notOk(component.m.zero.binary.isVisible, 'm0 binary not shown');
+    assert.notOk(component.m.one.math.isVisible, 'm1 math not shown');
+    assert.notOk(component.m.one.binary.isVisible, 'm1 binary not shown');
+    assert.notOk(component.h.zero.math.isVisible, 'h0 math not shown');
+    assert.notOk(component.h.zero.binary.isVisible, 'h0 binary not shown');
+    assert.notOk(component.h.one.math.isVisible, 'h1 math not shown');
+    assert.notOk(component.h.one.binary.isVisible, 'h1 binary not shown');
+    assert.notOk(component.human.isVisible, 'human time is not shown');
   });
 });

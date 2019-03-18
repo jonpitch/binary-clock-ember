@@ -2,6 +2,10 @@ $keyline: 24px;
 
 body {
   background-color: #4c4c4c;
+  .settings {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 binary-clock {

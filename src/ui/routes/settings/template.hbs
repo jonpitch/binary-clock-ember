@@ -1,0 +1,21 @@
+<div>
+  {{#link-to "index"}}
+    <img src="{{this.rootUrl}}/outline-arrow_back-24px.svg" alt="back">
+  {{/link-to}}
+</div>
+
+<button {{action "toggle" "dark-mode"}}>
+  Dark Mode
+</button>
+
+<button {{action "toggle" "show-math"}}>
+  Show Math
+</button>
+
+<button {{action "toggle" "show-binary"}}>
+  Show Binary
+</button>
+
+<button {{action "toggle" "human-time"}}>
+  Human Time
+</button>
