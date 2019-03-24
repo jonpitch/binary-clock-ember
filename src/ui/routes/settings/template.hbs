@@ -4,18 +4,49 @@
   {{/link-to}}
 </div>
 
-<button {{action "toggle" "dark-mode"}}>
-  Dark Mode
-</button>
-
-<button {{action "toggle" "show-math"}}>
-  Show Math
-</button>
-
-<button {{action "toggle" "show-binary"}}>
-  Show Binary
-</button>
-
-<button {{action "toggle" "human-time"}}>
-  Human Time
-</button>
+<ul class="mdc-list mdc-list--two-line">
+  <li class="mdc-list-item mdc-ripple-upgraded" tabindex="0">
+    <span class="mdc-list-item__text">
+      <span class="mdc-list-item__primary-text">Dark Mode</span>
+      <span class="mdc-list-item__secondary-text">I am the night</span>
+    </span>
+    <MdcCheckbox
+      @selected={{this.isDarkModeEnabled}}
+      onChange={{action "toggle" "dark-mode"}}
+      class="mdc-list-item__meta mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+    />
+  </li>
+  <li class="mdc-list-item mdc-ripple-upgraded" tabindex="0">
+    <span class="mdc-list-item__text">
+      <span class="mdc-list-item__primary-text">Show Your Work</span>
+      <span class="mdc-list-item__secondary-text">display math so that I can understand this craziness</span>
+    </span>
+    <MdcCheckbox
+      @selected={{this.isShowMathEnabled}}
+      onChange={{action "toggle" "show-math"}}
+      class="mdc-list-item__meta mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+    />
+  </li>
+  <li class="mdc-list-item mdc-ripple-upgraded" tabindex="0">
+    <span class="mdc-list-item__text">
+      <span class="mdc-list-item__primary-text">I AM A ROBOT</span>
+      <span class="mdc-list-item__secondary-text">display hours, minutes and seconds in binary</span>
+    </span>
+    <MdcCheckbox
+      @selected={{this.isShowBinaryEnabled}}
+      onChange={{action "toggle" "show-binary"}}
+      class="mdc-list-item__meta mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+    />
+  </li>
+  <li class="mdc-list-item mdc-ripple-upgraded" tabindex="0">
+    <span class="mdc-list-item__text">
+      <span class="mdc-list-item__primary-text">Human Time</span>
+      <span class="mdc-list-item__secondary-text">display a 24 hour clock</span>
+    </span>
+    <MdcCheckbox
+      @selected={{this.isHumanTimeEnabled}}
+      onChange={{action "toggle" "human-time"}}
+      class="mdc-list-item__meta mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+    />
+  </li>
+</ul>

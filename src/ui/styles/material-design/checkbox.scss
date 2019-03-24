@@ -1,0 +1,15 @@
+// inactive
+.mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
+  border-color: #eeeeee;
+}
+
+// checked ripple
+.mdc-checkbox__background::before {
+  background-color: #eeeeee;
+}
+
+// checked active
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+  background-color: transparent;
+  border-color: #eeeeee;
+}

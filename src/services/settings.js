@@ -4,7 +4,6 @@ export const DARK_MODE = 'dark-mode';
 export const HUMAN_TIME = 'human-time';
 export const SHOW_MATH = 'show-math';
 export const SHOW_BINARY = 'show-binary';
-
 export default class SettingsService extends Service {
 
   /**
@@ -30,15 +29,5 @@ export default class SettingsService extends Service {
    */
   remove(key) {
     localStorage.removeItem(key);
-  }
-
-  /**
-   *
-   */
-  clear() {
-    localStorage.removeItem(DARK_MODE);
-    localStorage.removeItem(HUMAN_TIME);
-    localStorage.removeItem(SHOW_MATH);
-    localStorage.removeItem(SHOW_BINARY);
   }
 }
