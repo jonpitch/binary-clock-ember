@@ -1,8 +1,5 @@
-$keyline: 1.5rem;
-
-body {
-  background-color: #4c4c4c;
-}
+@import 'app/layout';
+@import 'app/color';
 
 binary-clock {
 
@@ -21,10 +18,10 @@ binary-clock {
   }
 
   .dot {
-    border: $keyline solid #676767;
+    border: $keyline solid var(--inactive-dot);
     border-radius: 50%;
     &.active {
-      border: $keyline solid #eeeeee;
+      border: $keyline solid var(--active-dot);
     }
 
     margin: 1rem;
@@ -48,7 +45,7 @@ binary-clock {
   .help {
     font-family: Helvetica, sans-serif;
     text-align: center;
-    color: #eeeeee;
+    color: var(--font-color);
     font-size: 1rem;
   }
 
@@ -56,30 +53,9 @@ binary-clock {
     font-family: Helvetica, sans-serif;
     display: flex;
     justify-content: center;
-    color: #676767;
+    color: var(--font-color);
     margin-top: $keyline;
     font-size: 3rem;
-  }
-}
-
-.flex-row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -($keyline);
-  margin-right: -($keyline);
-
-  > * {
-    flex-basis: 0;
-    flex-grow: 1;
-    margin-left: $keyline;
-    margin-right: $keyline;
-
-    // ~phone
-    @media (min-width: 320px) and (max-width: 480px) {
-      width: 100%;
-      flex-basis: auto;
-      display: block;
-    }
   }
 }
 

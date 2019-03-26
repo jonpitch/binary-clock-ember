@@ -36,5 +36,11 @@ export default class SettingsController extends Controller {
     this.notifyPropertyChange('isShowMathEnabled');
     this.notifyPropertyChange('isShowBinaryEnabled');
     this.notifyPropertyChange('isHumanTimeEnabled');
+
+    if (key === DARK_MODE && !toValue) {
+      document.querySelector('body').setAttribute('data-theme', 'dark');
+    } else if (key === DARK_MODE) {
+      document.querySelector('body').setAttribute('data-theme', '');
+    }
   }
 }
