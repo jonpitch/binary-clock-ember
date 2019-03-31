@@ -273,7 +273,12 @@ export default class BinaryClock extends Component {
 
   @task
   timer = function*() {
-    while (true && !Ember.testing) {
+    if (Ember.testing) {
+      this.set('_time', new Date());
+      return;
+    }
+
+    while (true) {
       this.set('_time', new Date());
       yield timeout(1000);
     }
