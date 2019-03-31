@@ -1,0 +1,22 @@
+$keyline: 1.5rem;
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -($keyline);
+  margin-right: -($keyline);
+
+  > * {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-left: $keyline;
+    margin-right: $keyline;
+
+    // ~phone
+    @media (min-width: 320px) and (max-width: 480px) {
+      width: 100%;
+      flex-basis: auto;
+      display: block;
+    }
+  }
+}
