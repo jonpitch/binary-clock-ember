@@ -3,8 +3,31 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+  var env = EmberApp.env();
+  var isProductionLikeBuild = ['development'].indexOf(env) === -1;
+
   let app = new EmberApp(defaults, {
-    // Add options here
+    minifyCSS: { enabled: isProductionLikeBuild },
+    minifyJS: { enabled: isProductionLikeBuild },
+    fingerprint: {
+      enabled: isProductionLikeBuild,
+      prepend: '',
+      exclude: [
+        'sw.js',
+        'sw.map'
+      ],
+      extensions: [
+        'js', 'css', 'png', 'jpg', 'gif', 'map', 'ico', 'json', 'xml',
+        'woff', 'woff2', 'otf', 'ttf', 'svg', 'ijmap', 'eot'
+      ]
+    },
+    sourcemaps: {
+      enabled: true
+    },
+    'ember-service-worker': {
+      enabled: ['development', 'test'].indexOf(env) === -1,
+      'registration-strategy': 'inline'
+    }
   });
 
   // material web components
