@@ -1,0 +1,14 @@
+{
+  "https_only": true,
+  "headers": {
+    "/assets/**": {
+      "Cache-Control": "public, max-age=31536000"
+    },
+    "/fonts/**": {
+      "Cache-Control": "public, max-age=31536000"
+    },
+    "/images/**": {
+      "Cache-Control": "public, max-age=31536000"
+    }
+  }
+}

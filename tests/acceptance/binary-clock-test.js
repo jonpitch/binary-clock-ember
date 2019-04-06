@@ -32,7 +32,6 @@ module('Acceptance | binary clock', function(hooks) {
 
   test('user can view clock and change settings', async function(assert) {
     await page.visit();
-    assert.equal(currentURL(), page.url, 'on the right page');
 
     assert.ok(page.clock.isVisible, 'see binary clock');
     assert.ok(page.settings.isVisible, 'see settings icon');
@@ -49,7 +48,11 @@ module('Acceptance | binary clock', function(hooks) {
     assert.notOk(page.clock.math.s1, 'no s1 math');
     assert.notOk(page.clock.math.s0, 'no s0 math');
     assert.notOk(page.clock.humanTime, 'no human readable time');
-    // assert.equal(page.clock.theme.value, '', 'is light mode by default');
+    assert.equal(
+      document.querySelector('body').dataset.theme,
+      undefined,
+      'light mode by default'
+    );
 
     await page.settings.click();
     assert.equal(currentURL(), settings.url, 'on the settings page');
@@ -87,6 +90,22 @@ module('Acceptance | binary clock', function(hooks) {
     assert.ok(page.clock.math.s1, 's1 math');
     assert.ok(page.clock.math.s0, 's0 math');
     assert.ok(page.clock.humanTime, 'see human readable time');
-    // assert.equal(page.clock.theme.value, 'dark', 'is now dark mode');
+    assert.equal(
+      document.querySelector('body').dataset.theme,
+      'dark',
+      'clock is now in dark mode'
+    );
+  });
+
+  test('re-visit with dark mode already enabled', async function(assert) {
+    settingsService.set(DARK_MODE, true);
+
+    await page.visit();
+
+    assert.equal(
+      document.querySelector('body').dataset.theme,
+      'dark',
+      'dark mode already enabled'
+    );
   });
 });
