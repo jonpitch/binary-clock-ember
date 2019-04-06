@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Roboto;
+  font-display: swap;
+  src: local(Roboto)
+    , url('/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-display: swap;
+  src: local('Material Icons')
+    , url('/fonts/Material-Icons.woff2') format('woff2')
+    , url('/fonts/Material-Icons.woff') format('woff');
+}
